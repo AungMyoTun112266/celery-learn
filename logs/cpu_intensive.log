@@ -1,6 +1,0 @@
-[2025-08-31 01:09:16,257: INFO/MainProcess] Connected to redis://:**@localhost:6379/0
-[2025-08-31 01:09:16,259: INFO/MainProcess] mingle: searching for neighbors
-[2025-08-31 01:09:17,266: INFO/MainProcess] mingle: sync with 2 nodes
-[2025-08-31 01:09:17,267: INFO/MainProcess] mingle: sync complete
-[2025-08-31 01:09:17,278: INFO/MainProcess] cpu_intensive@Aungs-MacBook-Pro.local ready.
-[2025-08-31 01:14:26,914: WARNING/MainProcess] Got shutdown from remote
