@@ -1,4 +1,3 @@
-from math import log
 import time
 import logging
 from celery import shared_task, chord, chain, group

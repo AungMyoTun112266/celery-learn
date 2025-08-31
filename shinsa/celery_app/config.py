@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from kombu import Exchange, Queue
+from celery.schedules import crontab
 
 load_dotenv()
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
@@ -90,5 +91,19 @@ WORKER_CONFIGS = {
         "concurrency": 0,  # Auto-detect CPU cores
         "prefetch_multiplier": 1,
         "queues": ["cpu_intensive"],
+    },
+}
+
+BEAT_SCHEDULE = {
+    "hello-every-15-sec": {
+        "task": "say_hello_task",
+        "schedule": 15.0,
+        "args": ("Beat User",),
+        "options": {"queue": "coordination"},  # custom queue
+    },
+    "cleanup-every-midnight": {
+        "task": "cleanup_task",
+        "schedule": crontab(hour=0, minute=0),
+        "options": {"queue": "io-intensive"},  # another queue
     },
 }
